@@ -478,73 +478,85 @@
 
   /* ------ Section: 院長 ------ */
   .doctor{
-    background: var(--blue-900);
-    color:#fff;
+    background: linear-gradient(180deg, #f3f7fd 0%, #e8f0fb 60%, #ffffff 100%);
+    color: var(--ink);
     position:relative;
     overflow:hidden;
   }
   .doctor::before{
     content:""; position:absolute; inset:0;
     background:
-      radial-gradient(80% 50% at 90% 0%, rgba(59,111,224,.4), transparent 60%),
-      radial-gradient(60% 40% at 10% 100%, rgba(29,78,216,.55), transparent 70%);
-    opacity:.7;
+      radial-gradient(60% 40% at 90% 0%, rgba(29,78,216,.06), transparent 70%),
+      radial-gradient(50% 30% at 10% 100%, rgba(29,78,216,.05), transparent 70%);
   }
   .doctor .pad{ position:relative; }
-  .doctor .eyebrow{ color: #9bb5f7; }
-  .doctor .h-section{ color:#fff; margin-top:10px; }
+  .doctor .eyebrow{ color: var(--blue-700); }
+  .doctor .h-section{ color: var(--ink); margin-top:10px; }
   .doctor .name-en{
     font-family:"Cormorant Garamond", serif; font-style:italic;
-    color:#bccffd; font-size:15px; letter-spacing:.14em; margin-top: 6px;
+    color:var(--blue-700); font-size:15px; letter-spacing:.14em; margin-top: 6px;
   }
   .doctor .photo{
-    margin: 28px -26px 0;
-    aspect-ratio: 1/1; overflow:hidden;
-    background:
-      repeating-linear-gradient(45deg, rgba(255,255,255,.04) 0 12px, transparent 12px 24px),
-      linear-gradient(180deg, #122d80, #0a2473);
-    display:grid; place-items:center;
-    color:#7d99e7; font-family:"Inter",monospace; font-size:11px; letter-spacing:.2em;
-    border-top:1px solid rgba(255,255,255,.08);
-    border-bottom:1px solid rgba(255,255,255,.08);
+    margin: 28px 0 0;
+    aspect-ratio: 4/5; overflow:hidden;
+    background: #f3f7fd;
+    position:relative;
+    border-top: 1px solid rgba(29,78,216,.10);
+    border-bottom: 1px solid rgba(29,78,216,.10);
   }
-  .doctor .photo .ph{
-    text-align:center;
+  .doctor .photo img{
+    width:100%; height:100%;
+    object-fit: contain;
+    object-position: center bottom;
+    display:block;
+    position:relative; z-index:2;
   }
-  .doctor .photo .ph .frame{
-    width:140px; height:140px; border:1px solid rgba(255,255,255,.2);
-    border-radius:50%; margin: 0 auto 14px;
-    display:grid; place-items:center;
-    background: rgba(255,255,255,.03);
+  .doctor .photo .meta-tag{
+    position:absolute; top:18px; left:20px; z-index:4;
+    display:flex; align-items:center; gap:10px;
+    font-family:"Cormorant Garamond", serif; font-style:italic;
+    color:var(--blue-700); font-size:13px; letter-spacing:.14em;
   }
-  .doctor .photo .ph .frame span{
-    font-family:"Shippori Mincho",serif; font-size:34px; color:#fff; opacity:.4;
+  .doctor .photo .meta-tag::before{
+    content:""; width:20px; height:1px; background:var(--blue-700);
   }
-  .doctor p{ font-size:13.5px; line-height:2; color:#cbd6f4; margin:0; }
+  .doctor .photo .sig{
+    position:absolute; left:20px; bottom:18px; z-index:4;
+    color:var(--ink); line-height:1.2;
+  }
+  .doctor .photo .sig .ja{
+    font-family:"Shippori Mincho",serif; font-size:18px; letter-spacing:.1em; color:var(--ink);
+  }
+  .doctor .photo .sig .en{
+    font-family:"Cormorant Garamond", serif; font-style:italic;
+    color:var(--blue-700); font-size:12px; letter-spacing:.18em; margin-top:6px;
+    display:block;
+  }
+  .doctor p{ font-size:13.5px; line-height:2; color: var(--ink-2); margin:0; }
   .doctor .bio{ margin-top: 28px; }
   .doctor .creds{
     margin-top: 28px;
-    border-top:1px solid rgba(255,255,255,.12);
+    border-top:1px solid var(--rule);
     padding-top: 22px;
   }
   .doctor .creds h4{
     font-family:"Cormorant Garamond", serif; font-style:italic;
-    color:#9bb5f7; font-size:13px; letter-spacing:.14em; margin-bottom:8px;
+    color:var(--blue-700); font-size:13px; letter-spacing:.14em; margin-bottom:8px;
   }
   .doctor .creds ul{ list-style:none; margin:0; padding:0; }
   .doctor .creds li{
-    font-size:12.5px; color:#cbd6f4; padding: 4px 0;
+    font-size:12.5px; color:var(--ink-2); padding: 4px 0;
     display:flex; gap:8px;
   }
   .doctor .creds li::before{
-    content:"／"; color:#536bb0;
+    content:"／"; color:var(--blue-200);
   }
   .doctor blockquote{
     margin: 32px 0 0; padding: 20px 22px;
-    border-left: 2px solid #6e8de4;
-    background: rgba(255,255,255,.04);
+    border-left: 2px solid var(--blue-700);
+    background: #fff;
     font-family:"Shippori Mincho", serif;
-    font-size:14px; line-height:2; color:#e6ecfb;
+    font-size:14px; line-height:2; color: var(--ink);
   }
 
   /* ------ Section: Flow ------ */
@@ -1051,16 +1063,17 @@
   <!-- DOCTOR -->
   <section class="doctor" data-screen-label="05 Doctor">
     <div class="pad">
-      <div class="eyebrow upper" style="color:#9bb5f7;">Director</div>
+      <div class="eyebrow upper">Director</div>
       <h2 class="h-section">院長 <br /><span class="mincho" style="font-size:32px;">中村 鴻志</span></h2>
       <div class="name-en">─ NAKAMURA HIROSHI</div>
     </div>
 
     <div class="photo">
-      <div class="ph">
-        <div class="frame"><span>院</span></div>
-        <div>PORTRAIT / 中村 鴻志 院長</div>
-        <div style="margin-top:4px;opacity:.6;">photo placeholder ─ 1:1</div>
+      <div class="meta-tag">Director Portrait</div>
+      <img src="assets/dr-nakamura-final.png" alt="中村 鴻志 院長" />
+      <div class="sig">
+        <span class="ja">中村 鴻志</span>
+        <span class="en">DR. HIROSHI NAKAMURA — DIRECTOR</span>
       </div>
     </div>
 
